@@ -1,0 +1,18 @@
+sub  $s1, $s1, $s1
+
+addi $s2, $zero, 5
+
+and  $s3, $zero, $zero
+or   $s3, $zero, $zero
+xor  $s3, $zero, $zero
+nor  $s3, $zero, $zero
+
+ori  $s4, $zero, 0xF
+
+ori  $s5, $s5, 0xF
+
+andi $s6, $s6, 0xFF87
+
+addi $s7, $s7, -5
+
+sll  $s1, $s1, 4
