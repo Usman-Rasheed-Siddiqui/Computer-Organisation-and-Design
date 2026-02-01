@@ -1,7 +1,7 @@
 .data
-	msg1: .asciiz "Enter some integer value for x followed by enter:"
-	msg2: .asciiz "Enter some integer value for y followed by enter:"
-	msg3: .asciiz "Enter some integer value for z followed by enter:"
+	msg1: .asciiz "Enter some integer value for x followed by enter: "
+	msg2: .asciiz "Enter some integer value for y followed by enter: "
+	msg3: .asciiz "Enter some integer value for z followed by enter: "
 	msg4: .asciiz "\nResult of x-y+z-"
 	msg5: .asciiz " is "
 	roll_number: .word 12
@@ -67,3 +67,4 @@ main:
 	syscall
 	
 .end main
+

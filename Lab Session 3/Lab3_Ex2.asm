@@ -18,7 +18,7 @@ main:
 	move $t0, $v0
 	
 	# Inverting
-	not $t1, $t0
+	nor $t1, $t0, $zero
 	
 	# Adding 1 to make 2's Complement
 	addi $t1, $t1, 1
@@ -39,7 +39,7 @@ main:
 	move $a0, $t1
 	syscall
 	
-	li, $v0, 10
+	li $v0, 10
 	syscall
 
 .end main
