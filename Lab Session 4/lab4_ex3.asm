@@ -13,40 +13,44 @@
 .ent main
 
 main:
+	# Print input message
 	li $v0, 4
 	la $a0, msg1
 	syscall
-
+	
+	# Read Celsius value
 	li $v0, 5
 	syscall
 	sw $v0, cTemp
 
-	sw 9, $t1
-	sw 5, $t2
+	li $t1, 9
+	li $t2, 5
+
+	# Load Celsius
+	lw $t3, cTemp
 	
-	mul $t0, $t1, cTemp
+	# (C * 9 + 2) / 5   → rounding
+	mul $t0, $t1, $t3
 	addi $t0, $t0, 2
 
 	div $t0, $t2
 	mflo $t0
 
 	addi $t0, $t0, 32
-	
 	sw $t0, fTemp
 	
+	# Print result text
 	li $v0, 4
-	la $a0, msg2
+	la $a0, res
 	syscall
 	
+	# Print Fahrenheit value
+	lw $t3, fTemp
 	li $v0, 1
-	move $a0, fTemp
+	move $a0, $t3
 	syscall
 
 	li $v0, 10
 	syscall
 
 .end main
-	
-	
-	
-	
