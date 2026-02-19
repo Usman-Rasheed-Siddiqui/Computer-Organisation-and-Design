@@ -19,12 +19,19 @@ main:
 	
 	li $t1, 30
 	li $t3, 20
-	slt $t2, $t1, $t0
-	slt $t4, $t3, $t0
 
-	li $t5, 1
-	
-	beq $t5, $t2, hot
+	slt $t2, $t1, $t0
+	beq $t2, 1, hot
+
+	slt $t4, $t3, $t0
+	beq $t4, 1, pleasant
+
+
+cold:
+	li $v0, 4
+	la $a0, coldDay
+	syscall
+	j exit
 
 hot:
 	li $v0, 4
@@ -32,6 +39,17 @@ hot:
 	syscall
 	j exit
 
+pleasant:
+	li $v0, 4
+	la $a0, pleasantDay
+	syscall
+	j exit	
+
+exit:
+	li $v0, 10
+	syscall
+
+.end main
 	
 
 

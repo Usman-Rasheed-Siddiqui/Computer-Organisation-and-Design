@@ -13,7 +13,6 @@
 .ent main
 
 main:
-	# Print input message
 	li $v0, 4
 	la $a0, msg1
 	syscall
@@ -26,10 +25,9 @@ main:
 	li $t1, 9
 	li $t2, 5
 
-	# Load Celsius
 	lw $t3, cTemp
 	
-	# (C * 9 + 2) / 5   → rounding
+	# (C * 9 + 2) / 5
 	mul $t0, $t1, $t3
 	addi $t0, $t0, 2
 
@@ -39,7 +37,6 @@ main:
 	addi $t0, $t0, 32
 	sw $t0, fTemp
 	
-	# Print result text
 	li $v0, 4
 	la $a0, res
 	syscall
